@@ -5,4 +5,4 @@ from .models import Product
 class Admin_Product(admin.ModelAdmin):
     list_display = ['name', 'price', 'weight', 'category']
 
-admin.site.register(Product)
+admin.site.register(Product, Admin_Product)

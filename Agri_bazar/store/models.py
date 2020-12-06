@@ -9,3 +9,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=200, blank=True, null=True)
     image = models.ImageField(upload_to='photos/product/%y/%m/%d')
+
+    def __str__(self):
+        return self.name
