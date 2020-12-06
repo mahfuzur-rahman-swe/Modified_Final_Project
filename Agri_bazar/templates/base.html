@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Agri_bazar</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- //for-mobile-apps -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'css/flexslider.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <!-- font-awesome icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/counterup.min.js' %}"></script>
+    <script src="{% static 'js/okzoom.js' %}"></script>
+    <script src="{% static 'js/jquery.flexslider.js' %}"></script>
+    <script src="{% static 'js/jquery.wmuSlider.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/minicart.min.js' %}"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+          rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="typ/javascript" src="{% static 'js/move-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+    </script>
+    <!-- //start-smoth-scrolling -->
+</head>
+
+<body>
+<!-- header -->
+
+{% include 'partials/_topbar.html' %}
+
+{% include 'partials/_navbar.html' %}
+<!-- //header -->
+
+<!-- Category -->
+{% include 'category/category.html' %}
+<!-- //Category -->
+
+{% block content %} {% endblock %}
+
+<!-- subscribe -->
+{% include 'partials/_subscribe.html' %}
+<!-- //subscribe -->
+
+<!-- footer -->
+{% include 'partials/_footer.html' %}
+<!-- //footer -->
+
+<!-- Bootstrap Core JavaScript -->
+<script>
+    $(document).ready(function () {
+        $(".dropdown").hover(
+            function () {
+                $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function () {
+                $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+</script>
+<!-- //Bootstrap Core JavaScript -->
+
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $().UItoTop({easingType: 'easeOutQuart'});
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<script>
+    // Mini Cart
+    paypal.minicart.render({
+        action: '#'
+    });
+
+    if (~window.location.search.indexOf('reset=true')) {
+        paypal.minicart.reset();
+    }
+</script>
+</body>
+</html>
