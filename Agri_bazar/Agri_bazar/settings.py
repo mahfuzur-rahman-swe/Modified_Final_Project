@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'store.apps.StoreConfig', #store apps
     'category.apps.CategoryConfig', #category apps
+    'pages.apps.PagesConfig', #pages apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
