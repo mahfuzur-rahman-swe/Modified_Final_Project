@@ -1,10 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+    <!-- banner -->
+    <div class="banner">
+        <!-- Sign Up -->
+        <div class="page-wrapper bg-dark p-t-100 p-b-50">
+            <div class="wrapper wrapper--w900">
+                <div class="card card-6">
+                    <div class="card-heading">
+                        <h2 class="title">Sign Up</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="form-row">
+                                <div class="name">Full Name</div>
+                                <div class="value">
+                                    <input class="input--style-6" type="text" name="full_name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Mobile Number</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-6" type="email" name="email"
+                                               placeholder="Enter your mobile number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Email</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-6" type="email" name="email"
+                                               placeholder="example@email.com">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Address</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <textarea class="textarea--style-6" name="message"
+                                                  placeholder="Enter your full address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Password</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input type="password" name="password" class="form-control" id="password"
+                                           placeholder="Enter password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Confirm Password</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="confirm_password"
+                                           id="confirm_password" placeholder="Same password previously entered">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- //Sign Up -->
+
+        <div class="clearfix"></div>
+    </div>
+    <!-- banner -->
+
+{% endblock %}

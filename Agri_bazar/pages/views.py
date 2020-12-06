@@ -9,3 +9,6 @@ def about(request):
 
 def login(request):
     return render(request, 'pages/login.html')
+
+def signup(request):
+    return render(request, 'pages/signup.html')
