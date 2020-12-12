@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
 {% block content %}
 
     <!-- banner -->
@@ -19,11 +17,11 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav nav_1">
+                    <li><a href="{% url 'index' %}">All Products</a></li>
                         {% for category_list in category_dict %}
-                            <li><a href="products.html">{{ category_list.name }}</a></li>
+                            <li><a href="/?category={{ category_list.id }}">{{ category_list.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -87,7 +85,7 @@
     <!-- Tile -->
     <div class="top-brands">
         <div class="container">
-            <h3>ALL PRODUCTS</h3>
+            <h3>Store</h3>
             <div class="agile_top_brands_grids">
 
                 <!-- products -->
