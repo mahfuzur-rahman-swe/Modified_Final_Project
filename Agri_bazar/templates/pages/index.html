@@ -6,9 +6,31 @@
 
     <!-- banner -->
     <div class="banner">
+
         <!-- Category -->
-        {% include 'category/category.html' %}
+        <div class="w3l_banner_nav_left">
+            <nav class="navbar nav_bottom">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse"
+                            data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav nav_1">
+                        {% for category_list in category_dict %}
+                            <li><a href="products.html">{{ category_list.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <!-- //Category -->
+
         <!-- right side banner -->
         <div class="w3l_banner_nav_right">
             <section class="slider">
@@ -68,40 +90,44 @@
             <h3>ALL PRODUCTS</h3>
             <div class="agile_top_brands_grids">
 
-            <!-- products -->
+                <!-- products -->
                 {% for product_list in product_dict %}
                     <div class="col-md-3 mx-auto mb-3 top_brand_left">
                         <div class="hover14 column">
-						<div class="agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block" >
-										<div class="snipcart-thumb">
-											<a href="single.html"><img title=" " alt=" " src="{{ product_list.image.url }}" /></a>
-											<p>{{ product_list.name }}<span><small> ({{ product_list.weight }}) </small> </span></p>
-											<h4>৳ {{ product_list.price }}</h4>
-										</div>
-										<div class="snipcart-details top_brand_home_details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-													<input type="hidden" name="amount" value="7.99" />
-													<input type="hidden" name="discount_amount" value="1.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-					</div>
+                            <div class="agile_top_brand_left_grid">
+                                <div class="agile_top_brand_left_grid1">
+                                    <figure>
+                                        <div class="snipcart-item block">
+                                            <div class="snipcart-thumb">
+                                                <a href="single.html"><img title=" " alt=" "
+                                                                           src="{{ product_list.image.url }}"/></a>
+                                                <p>{{ product_list.name }}<span><small> ({{ product_list.weight }}) </small> </span>
+                                                </p>
+                                                <h4>৳ {{ product_list.price }}</h4>
+                                            </div>
+                                            <div class="snipcart-details top_brand_home_details">
+                                                <form action="#" method="post">
+                                                    <fieldset>
+                                                        <input type="hidden" name="cmd" value="_cart"/>
+                                                        <input type="hidden" name="add" value="1"/>
+                                                        <input type="hidden" name="business" value=" "/>
+                                                        <input type="hidden" name="item_name"
+                                                               value="Fortune Sunflower Oil"/>
+                                                        <input type="hidden" name="amount" value="7.99"/>
+                                                        <input type="hidden" name="discount_amount" value="1.00"/>
+                                                        <input type="hidden" name="currency_code" value="USD"/>
+                                                        <input type="hidden" name="return" value=" "/>
+                                                        <input type="hidden" name="cancel_return" value=" "/>
+                                                        <input type="submit" name="submit" value="Add to cart"
+                                                               class="button"/>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
