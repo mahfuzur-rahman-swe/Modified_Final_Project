@@ -12,19 +12,26 @@
                         <h2 class="title">Sign Up</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST">
+                        <form action="/" method="POST">
+                            {% csrf_token %}
                             <div class="form-row">
-                                <div class="name">Full Name</div>
+                                <div class="name">First Name</div>
                                 <div class="value">
-                                    <input class="input--style-6" type="text" name="full_name">
+                                    <input class="input--style-6" type="text" name="First_Name" required="">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Last Name</div>
+                                <div class="value">
+                                    <input class="input--style-6" type="text" name="Last_Name">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="name">Mobile Number</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-6" type="email" name="email"
-                                               placeholder="Enter your mobile number">
+                                        <input class="input--style-6" type="tel" name="Mobile_Number"
+                                               placeholder="0123456789">
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +39,7 @@
                                 <div class="name">Email</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-6" type="email" name="email"
+                                        <input class="input--style-6" type="email" name="Email"
                                                placeholder="example@email.com">
                                     </div>
                                 </div>
@@ -41,7 +48,7 @@
                                 <div class="name">Address</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <textarea class="textarea--style-6" name="message"
+                                        <textarea class="textarea--style-6" name="Address"
                                                   placeholder="Enter your full address"></textarea>
                                     </div>
                                 </div>
@@ -50,30 +57,17 @@
                                 <div class="name">Password</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input type="password" name="password" class="form-control" id="password"
-                                           placeholder="Enter password">
+                                        <input type="password" name=Password" class="form-control" id="password"
+                                               placeholder="Enter password">
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="name">Confirm Password</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" name="confirm_password"
-                                           id="confirm_password" placeholder="Same password previously entered">
-                                    </div>
-                                </div>
+                            <div class="card-footer">
+                                <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
