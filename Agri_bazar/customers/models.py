@@ -8,12 +8,3 @@ class Customer(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=150)
     password = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.mobile_number
-
-class Subscriber(models.Model):
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.email

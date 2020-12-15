@@ -25,7 +25,9 @@ def login(request):
     return render(request, 'pages/login.html')
 
 def signup(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
+        return render(request, 'pages/signup.html')
+    else:
         first_name = request.POST.get('First_Name')
         last_name = request.POST.get('Last_Name')
         mobile_num = request.POST.get('Mobile_Number')
@@ -33,15 +35,15 @@ def signup(request):
         address = request.POST.get('Address')
         password = request.POST.get('Password')
 
-        data = Customer(first_name= first_name,
-                        last_name = last_name,
-                        mobile_number= mobile_num,
-                        email= email,
-                        address= address,
-                        password= password)
+        data = Customer(first_name=first_name,
+                        last_name=last_name,
+                        mobile_number=mobile_num,
+                        email=email,
+                        address=address,
+                        password=password)
         data.save()
 
-    return render(request, 'pages/signup.html')
+        return HttpResponse("success")
 
 def single_product(request):
     return render(request, 'pages/single_product.html')
