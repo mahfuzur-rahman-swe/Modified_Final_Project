@@ -14,24 +14,32 @@
                     <div class="card-body">
                         <form action="/signup" method="POST">
                             {% csrf_token %}
+                            {% if error %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endif %}
+
                             <div class="form-row">
                                 <div class="name">First Name</div>
                                 <div class="value">
-                                    <input class="input--style-6" type="text" name="First_Name">
+                                    <input class="input--style-6" type="text" name="First_Name" value="{{ value.first_name }}"
+                                    placeholder="Must be four character long">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="name">Last Name</div>
                                 <div class="value">
-                                    <input class="input--style-6" type="text" name="Last_Name">
+                                    <input class="input--style-6" type="text" name="Last_Name" value="{{ value.last_name }}"
+                                    placeholder="Must be four character long">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="name">Mobile Number</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-6" type="tel" name="Mobile_Number"
-                                               placeholder="0123456789">
+                                        <input class="input--style-6" type="tel" name="Mobile_Number" value="{{ value.mobile_number }}"
+                                               placeholder="01234567890">
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +47,7 @@
                                 <div class="name">Email</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <input class="input--style-6" type="email" name="Email"
+                                        <input class="input--style-6" type="email" name="Email" required="" value="{{ value.email }}"
                                                placeholder="example@email.com">
                                     </div>
                                 </div>
@@ -48,7 +56,7 @@
                                 <div class="name">Address</div>
                                 <div class="value">
                                     <div class="input-group">
-                                        <textarea class="textarea--style-6" name="Address"
+                                        <textarea class="textarea--style-6" name="Address" required=""
                                                   placeholder="Enter your full address"></textarea>
                                     </div>
                                 </div>
@@ -58,7 +66,7 @@
                                 <div class="value">
                                     <div class="input-group">
                                         <input class="input--style-6" type="password" name="Password"
-                                               placeholder="*******">
+                                               placeholder="Must be five character long">
                                     </div>
                                 </div>
                             </div>

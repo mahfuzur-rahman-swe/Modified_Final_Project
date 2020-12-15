@@ -19,7 +19,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                     <ul class="nav navbar-nav nav_1">
-                    <li><a href="{% url 'index' %}">All Products</a></li>
+                        <li><a href="{% url 'index' %}">All Products</a></li>
                         {% for category_list in category_dict %}
                             <li><a href="/?category={{ category_list.id }}">{{ category_list.name }}</a></li>
                         {% endfor %}
