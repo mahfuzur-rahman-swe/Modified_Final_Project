@@ -8,3 +8,10 @@ class Customer(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=150)
     password = models.CharField(max_length=200)
+
+    def email_exits(self):
+        if Customer.objects.filter(email = self.email):
+            return True
+        else:
+            return False
+
