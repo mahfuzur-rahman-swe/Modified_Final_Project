@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8d8f572-6fc3-4576-9082-58dbd690c156" name="Default Changelist" comment="" />
+    <list default="true" id="c8d8f572-6fc3-4576-9082-58dbd690c156" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Agri_bazar/customers/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agri_bazar/customers/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agri_bazar/customers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agri_bazar/customers/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agri_bazar/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Agri_bazar/pages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agri_bazar/templates/pages/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agri_bazar/templates/pages/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Agri_bazar/templates/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Agri_bazar/templates/pages/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="058e6eea-a5ad-4db0-ab3d-f1b33904b085" />
   <component name="ProjectId" id="1lGn3uR7q0ZdRrOnjucHNJNcnt0" />
@@ -15,7 +24,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -26,6 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607232099585</updated>
       <workItem from="1607232124788" duration="76000" />
+      <workItem from="1608126370665" duration="137000" />
     </task>
     <servers />
   </component>

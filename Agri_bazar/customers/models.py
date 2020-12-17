@@ -9,9 +9,9 @@ class Customer(models.Model):
     address = models.CharField(max_length=150)
     password = models.CharField(max_length=200)
 
-    def email_exits(self):
+    def signup_email_exits(self):
         if Customer.objects.filter(email = self.email):
             return True
-        else:
-            return False
+
+        return False
 

@@ -1,8 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from store.models import Product
 from category.models import Category
 from customers.models import Customer
+from django.contrib.auth import authenticate, login
+
+
 
 # Create your views here.
 
@@ -18,13 +21,25 @@ def index(request):
     }
     return render(request, 'pages/index.html', context)
 
-def about(request):
-    return render(request, 'pages/about.html')
+#login page
+def login_page(request):
+    if request.method == 'GET':
+        return render(request, 'pages/login.html')
+    else:
+        username = request.POST.get('Email')
+        password = request.POST.get('Password')
 
-def login(request):
-    return render(request, 'pages/login.html')
+        error_message = None
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login()
+            return redirect('index')
+        else:
+            error_message = 'Email or Password Incorrect..!!'
+            return render(request, 'pages/login.html', {'error': error_message})
 
-def signup(request):
+#signup page
+def signup(request): #signup page
     if request.method == 'GET':
         return render(request, 'pages/signup.html')
     else:
@@ -37,6 +52,13 @@ def signup(request):
 
         #validation
         error_message = None
+
+        data = Customer(first_name=first_name,
+                        last_name=last_name,
+                        mobile_number=mobile_num,
+                        email=email,
+                        address=address,
+                        password=password)
 
         if not first_name:
             error_message = 'First Name Required !!'
@@ -51,29 +73,25 @@ def signup(request):
         elif len(mobile_num) < 11:
             error_message = 'Mobile Number must be eleven character long'
         elif not password:
-            error_message = 'Password Required !!'
+            error_message = 'Password required !!'
+        elif data.signup_email_exits():
+            error_message = 'Email already registered'
         elif len(password) < 5:
-            error_message = 'Passwords must be at least 5 characters long'
-        elif Customer.email_exits:
-            error_message = 'Email already Registered..!!'
-        values = {
-            'first_name': first_name,
-            'last_name': last_name,
-            'mobile_number': mobile_num,
-            'email': email,
-            'address': address,
-        }
+            error_message = 'Password must be five character long'
 
         if not error_message:
-            data = Customer(first_name=first_name,
-                            last_name=last_name,
-                            mobile_number=mobile_num,
-                            email=email,
-                            address=address,
-                            password=password)
+
             data.save()
             return render(request, 'pages/signup.html')
+
         else:
+            values = {
+                'first_name': first_name,
+                'last_name': last_name,
+                'mobile_number': mobile_num,
+                'email': email,
+                'address': address,
+            }
             dictionary = {
                 'error': error_message,
                 'value': values
@@ -82,3 +100,7 @@ def signup(request):
 
 def single_product(request):
     return render(request, 'pages/single_product.html')
+
+#about page
+def about(request):
+    return render(request, 'pages/about.html')
