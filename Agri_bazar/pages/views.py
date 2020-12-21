@@ -28,12 +28,14 @@ def login_page(request):
     else:
         email = request.POST.get('Email')
         password = request.POST.get('Password')
-        user = Customer.login_email_exits(email)
+        customer = Customer.login_email_exits(email)
         error_message = None
-        if user:
-            password_check = check_password(password, user.password)
+        if customer:
+            password_check = check_password(password, customer.password)
             if password_check:
+                request.session['customer_id'] = customer.id
                 return redirect('index')
+
             else:
                 error_message = 'Email or Password Incorrect..!!'
                 return render(request, 'pages/login.html')

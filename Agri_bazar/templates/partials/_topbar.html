@@ -26,9 +26,12 @@
                 <div class="mega-dropdown-menu">
                     <div class="w3ls_vegetables">
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                            <li><a href="{% url 'index' %}">Logout</a></li>
+                            {% if request.session.customer_id %}
+                                <li><a href="{% url 'index' %}">Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
