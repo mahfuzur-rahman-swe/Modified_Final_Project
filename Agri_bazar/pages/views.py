@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from store.models import Product
 from category.models import Category
 from customers.models import Customer
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.hashers import make_password, check_password
 
 
 
@@ -26,14 +26,17 @@ def login_page(request):
     if request.method == 'GET':
         return render(request, 'pages/login.html')
     else:
-        username = request.POST.get('Email')
+        email = request.POST.get('Email')
         password = request.POST.get('Password')
-
+        user = Customer.login_email_exits(email)
         error_message = None
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login()
-            return redirect('index')
+        if user:
+            password_check = check_password(password, user.password)
+            if password_check:
+                return redirect('index')
+            else:
+                error_message = 'Email or Password Incorrect..!!'
+                return render(request, 'pages/login.html')
         else:
             error_message = 'Email or Password Incorrect..!!'
             return render(request, 'pages/login.html', {'error': error_message})
@@ -80,9 +83,9 @@ def signup(request): #signup page
             error_message = 'Password must be five character long'
 
         if not error_message:
-
+            data.password = make_password(data.password)
             data.save()
-            return render(request, 'pages/signup.html')
+            return redirect('index')
 
         else:
             values = {

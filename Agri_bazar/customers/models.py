@@ -12,6 +12,13 @@ class Customer(models.Model):
     def signup_email_exits(self):
         if Customer.objects.filter(email = self.email):
             return True
+        else:
+            return False
 
-        return False
+    @staticmethod
+    def login_email_exits(email):
+        try:
+            return Customer.objects.get(email = email)
+        except:
+            return False
 
