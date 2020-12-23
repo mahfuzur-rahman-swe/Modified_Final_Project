@@ -27,7 +27,12 @@
                     <div class="w3ls_vegetables">
                         <ul class="dropdown-menu drp-mnu">
                             {% if request.session.customer_id %}
-                                <li><a href="{% url 'index' %}">Logout</a></li>
+                                <form method="POST">
+                                {% csrf_token %}
+                                    <label>
+                                        <li><a href="{% url 'logout' %}" type="submit">Logout</a></li>
+                                    </label>
+                                </form>
                             {% else %}
                                 <li><a href="{% url 'login' %}">Login</a></li>
                                 <li><a href="{% url 'signup' %}">Sign Up</a></li>

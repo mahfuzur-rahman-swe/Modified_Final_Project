@@ -109,3 +109,11 @@ def single_product(request):
 #about page
 def about(request):
     return render(request, 'pages/about.html')
+
+#logout
+def logout(request):
+    if request.method == 'GET':
+        request.session.clear()
+        return redirect('login')
+    else:
+        return render(request, 'pages/index.html')
